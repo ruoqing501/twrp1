@@ -49,14 +49,13 @@ AB_OTA_PARTITIONS += \
     my_stock
 
 # Bootloader
-PRODUCT_PLATFORM                := sun
-TARGET_BOOTLOADER_BOARD_NAME    := sun
+PRODUCT_PLATFORM                := canoe
+TARGET_BOOTLOADER_BOARD_NAME    := canoe
 
 # Crypto
 BOARD_USES_METADATA_PARTITION   := true
 TW_INCLUDE_CRYPTO               := true
 TW_INCLUDE_OMAPI                := true
-TW_OMAPI_UUID                   := 636F6D2E6E78702E7365637572697479 
 
 # Debug
 TARGET_USES_LOGD                := true
@@ -71,8 +70,8 @@ TARGET_USERIMAGES_USE_F2FS := true
 TW_USE_DMCTL               := true
 
 # Init
-TARGET_INIT_VENDOR_LIB          := //$(DEVICE_PATH):libinit_oplus_sm87xx
-TARGET_RECOVERY_DEVICE_MODULES  := libinit_oplus_sm87xx
+TARGET_INIT_VENDOR_LIB          := //$(DEVICE_PATH):libinit_oplus_infiniti
+TARGET_RECOVERY_DEVICE_MODULES  := libinit_oplus_infiniti
 
 # Kernel
 BOARD_KERNEL_IMAGE_NAME     := Image
@@ -87,9 +86,9 @@ BOARD_RAMDISK_USE_LZ4       := true
 BOARD_PROPERTY_OVERRIDES_SPLIT_ENABLED  := true
 BOARD_RECOVERYIMAGE_PARTITION_SIZE      := 0x6400000
 
-BOARD_SUPER_PARTITION_SIZE                  := 15569256448
+BOARD_SUPER_PARTITION_SIZE                  := 18907922432
 BOARD_SUPER_PARTITION_GROUPS                := qti_dynamic_partitions
-BOARD_QTI_DYNAMIC_PARTITIONS_SIZE           := 15565062144
+BOARD_QTI_DYNAMIC_PARTITIONS_SIZE           := 18903728128
 BOARD_QTI_DYNAMIC_PARTITIONS_PARTITION_LIST := system system_ext product vendor vendor_dlkm odm
 BOARD_QTI_DYNAMIC_PARTITIONS_PARTITION_LIST += my_bigball my_carrier my_company my_engineering my_heytap my_manifest my_preload my_product my_region my_stock
 
@@ -98,8 +97,8 @@ TARGET_COPY_OUT_ODM             := odm
 TARGET_COPY_OUT_VENDOR          := vendor
 
 # Platform
-TARGET_BOARD_PLATFORM   := sm87xx
-QCOM_BOARD_PLATFORMS    += sm87xx
+TARGET_BOARD_PLATFORM   := sm88xx
+QCOM_BOARD_PLATFORMS    += sm88xx
 
 # Recovery
 BOARD_EXCLUDE_KERNEL_FROM_RECOVERY_IMAGE    := true
@@ -135,7 +134,7 @@ PLATFORM_VERSION                := 99.87.36
 PLATFORM_VERSION_LAST_STABLE    := $(PLATFORM_VERSION)
 PLATFORM_SECURITY_PATCH         := 2099-12-31
 VENDOR_SECURITY_PATCH           := $(PLATFORM_SECURITY_PATCH)
-TW_DEVICE_VERSION               := OPLUS-SM87XX
+TW_DEVICE_VERSION               := OPLUS-infiniti
 
 # Verified Boot
 BOARD_AVB_ENABLE := true
@@ -149,7 +148,10 @@ TW_CUSTOM_CPU_TEMP_PATH                 := "/sys/class/thermal/thermal_zone45/te
 TW_EXCLUDE_APEX                         := true
 TW_EXCLUDE_DEFAULT_USB_INIT             := true
 TW_EXTRA_LANGUAGES                      := true
-TW_LOAD_VENDOR_MODULES                  := "adsp_loader_dlkm.ko oplus_chg_v2.ko stm_st54se_gpio.ko nxp-nci.ko"
+TW_LOAD_VENDOR_MODULES 			:= "adsp_loader_dlkm.ko oplus_chg_v2.ko stm_st54se_gpio.ko nxp-nci.ko"
 TW_LOAD_VENDOR_MODULES_EXCLUDE_GKI      := true
 TW_NO_SCREEN_BLANK                      := true
 TW_USE_SERIALNO_PROPERTY_FOR_DEVICE_ID  := true
+
+
+

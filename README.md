@@ -1,12 +1,8 @@
-# TWRP device tree for OPLUS sm87xx sreies
+# TWRP device tree for OPLUS infiniti
 
 ## Supported devices
 
-- Realme GT7 Pro (CN, GL)
-- Realme GT7 Pro Speed (CN, GL)
-- OnePlus 13T (CN)
-- OnePlus Ace 5 Pro (CN)
-- OnePlus 13 (CN)
+- OnePlus 15
 
 ## Build it yourself?
 
@@ -14,16 +10,16 @@
 mkdir twrp && cd twrp
 repo init --depth=1 -u https://github.com/TWRP-Test/platform_manifest_twrp_aosp.git -b twrp-16.0
 repo sync
-git clone --depth=1 https://github.com/kmiit/twrp_device_oplus_sm87xx device/oplus/sm87xx
+git clone --depth=1 https://github.com/koaaN/twrp_device_oplus_infiniti device/oplus/infiniti
 ```
 
 ```shell
 source build/envsetup.sh
-lunch twrp_sm87xx
+lunch twrp_infiniti
 make recoveryimage
 ```
 
-If there is no error, recovery.img will be found in `out/target/product/sm87xx/recovery.img`
+If there is no error, recovery.img will be found in `out/target/product/infiniti/recovery.img`
 
 ## Features
 
@@ -32,10 +28,11 @@ Works:
 - [X] ADB
 - [X] Display
 - [X] Decryption
-- [X] Fasbootd
+- [X] Fastbootd
 - [X] Flashing
+- [X] OTA Flash
 - [X] MTP
-- [X] Sideload
+- [?] Sideload
 - [X] Touch
 - [X] USB OTG
 - [X] Vibrator
