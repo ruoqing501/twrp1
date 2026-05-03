@@ -16,11 +16,6 @@ using android::base::GetProperty;
 using android::fs_mgr::GetKernelCmdline;
 
 const std::unordered_map<int, std::string> kRegionSuffixMap = {
-    {27,    "IN"},
-    {55,    "RU"},
-    {68,    "EEA"},
-    {151,   ""},    // CN
-    {161,   "NA"},
     {0,     ""},    // Default
 };
 
@@ -34,9 +29,7 @@ struct ModelInfo {
 };
 
 const std::unordered_map<int, ModelInfo> kModelInfoMap = {
-    {24831, {"OnePlus", "OP60FFL1", "OnePlus", "PLK110",  "PLK110",  "1"}}, // infiniti CN
-    {24863, {"OnePlus", "OP60FFL1", "OnePlus", "CPH2747",  "CPH2747",  "1"}}, // infiniti EU/GLO/IN/NA
-    {0,     {"nubia",   "SM88XX",   "OPLUS",   "SM88XX",  "SM88XX",  "0"}}, // Default
+    {0,     {"nubia",   "NX809J",   "nubia",   "NX809J",  "NX809J",  "0"}}, // Default
 };
 
 /*
