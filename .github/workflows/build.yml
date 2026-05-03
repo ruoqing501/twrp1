@@ -22,7 +22,7 @@ on:
       DEVICE_PATH:
         description: "Device path device/"
         required: true
-        default: "oplus"
+        default: "oplus/infiniti"
       DEVICE_NAME:
         description: "Device name"
         required: true
