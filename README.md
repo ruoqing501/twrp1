@@ -1,4 +1,4 @@
-# TWRP device tree for OPLUS infiniti
+# TWRP device tree for nubia NX809J
 
 ## Supported devices
 
