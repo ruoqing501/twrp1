@@ -22,11 +22,11 @@ on:
       DEVICE_PATH:
         description: "Device path device/"
         required: true
-        default: "oplus/infiniti"
+        default: "nubia/NX809J"
       DEVICE_NAME:
         description: "Device name"
         required: true
-        default: "infiniti"
+        default: "NX809J"
       LUNCH_TARGET:
         description: "lunch twrp_ (default same as device name)"
         required: false

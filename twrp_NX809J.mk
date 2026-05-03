@@ -1,19 +1,19 @@
 #
-# Copyright (C) 2025 The Android Open Source Project
+# Copyright (C) 2026 The Android Open Source Project
 #
 # SPDX-License-Identifier: Apache-2.0
 #
 
-DEVICE_PATH := device/oplus/infiniti
+DEVICE_PATH := device/nubia/NX809J
 
 # Inherit from device.mk configuration
 $(call inherit-product, $(DEVICE_PATH)/device.mk)
 
 ## Device identifier
-PRODUCT_DEVICE  := infiniti
-PRODUCT_NAME    := twrp_infiniti
-PRODUCT_BRAND   := oplus
-TARGET_OTA_ASSERT_DEVICE := PLK110,OP611FL1,OP60FFL1,CPH2745,CPH2747,CPH2749
+PRODUCT_DEVICE  := NX809J
+PRODUCT_NAME    := twrp_NX809J
+PRODUCT_BRAND   := nubia
+TARGET_OTA_ASSERT_DEVICE := NX809J
 
 # Theme
 TW_STATUS_ICONS_ALIGN   := center

@@ -5,11 +5,11 @@
 //
 
 cc_library_static {
-    name: "libinit_oplus_infiniti",
+    name: "libinit_nubia_NX809J",
     static_libs: [
         "libbase",
         "libfs_mgr"
     ],
-    srcs: ["libinit_oplus_infiniti.cpp"],
+    srcs: ["libinit_nubia_NX809J.cpp"],
     recovery_available: true,
 }

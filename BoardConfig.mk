@@ -70,8 +70,8 @@ TARGET_USERIMAGES_USE_F2FS := true
 TW_USE_DMCTL               := true
 
 # Init
-TARGET_INIT_VENDOR_LIB          := //$(DEVICE_PATH):libinit_oplus_infiniti
-TARGET_RECOVERY_DEVICE_MODULES  := libinit_oplus_infiniti
+TARGET_INIT_VENDOR_LIB          := //$(DEVICE_PATH):libinit_nubia_NX809J
+TARGET_RECOVERY_DEVICE_MODULES  := libinit_nubia_NX809J
 
 # Kernel
 BOARD_KERNEL_IMAGE_NAME     := Image
