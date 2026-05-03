@@ -2,7 +2,7 @@
 
 ## Supported devices
 
-- OnePlus 15
+- REDMAGIC 11 pro +
 
 ## Build it yourself?
 
@@ -10,12 +10,13 @@
 mkdir twrp && cd twrp
 repo init --depth=1 -u https://github.com/TWRP-Test/platform_manifest_twrp_aosp.git -b twrp-16.0
 repo sync
-git clone --depth=1 https://github.com/koaaN/twrp_device_oplus_infiniti device/oplus/infiniti
+git clone --depth=1  https://github.com/ruoqing501/twrp1 device/nubia/NX809J
 ```
 
 ```shell
 source build/envsetup.sh
-lunch twrp_infiniti
+export ALLOW_MISSING_DEPENDENCIES=true
+lunch twrp_NX809J
 make recoveryimage
 ```
 
@@ -32,18 +33,12 @@ Works:
 - [X] Flashing
 - [X] OTA Flash
 - [X] MTP
-- [?] Sideload
+- [ ] Sideload
 - [X] Touch
 - [X] USB OTG
 - [X] Vibrator
 
 ## To use it:
-
-```shell
-fastboot flash recovery recovery.img
-```
-
-or
 
 ```shell
 fastboot flash recovery_a recovery.img
