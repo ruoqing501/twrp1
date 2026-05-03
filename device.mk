@@ -29,21 +29,7 @@ AB_OTA_POSTINSTALL_CONFIG += \
 # Boot control HAL
 PRODUCT_PACKAGES += \
     android.hardware.boot@1.0-impl \
-    android.hardware.boot@1.0-service \
-    bootctrl.canoe
-    
-PRODUCT_STATIC_BOOT_CONTROL_HAL := \
-    bootctrl.canoe \
-    libgptutils \
-    libz \
-    libcutils
-
-PRODUCT_PACKAGES += \
-    otapreopt_script \
-    cppreopts.sh \
-    update_engine \
-    update_verifier \
-    update_engine_sideload
+    android.hardware.boot@1.0-service
 
 # Shipping API level
 BOARD_SHIPPING_API_LEVEL    := 36
