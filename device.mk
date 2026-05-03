@@ -1,5 +1,5 @@
 #
-# Copyright (C) 2025 The Android Open Source Project
+# Copyright (C) 2026 The Android Open Source Project
 #
 # SPDX-License-Identifier: Apache-2.0
 #
@@ -19,6 +19,32 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/emulated_storage.mk)
 # Configure twrp common.mk
 $(call inherit-product, vendor/twrp/config/common.mk)
 
+# A/B
+AB_OTA_POSTINSTALL_CONFIG += \
+    RUN_POSTINSTALL_system=true \
+    POSTINSTALL_PATH_system=system/bin/otapreopt_script \
+    FILESYSTEM_TYPE_system=ext4 \
+    POSTINSTALL_OPTIONAL_system=true
+
+# Boot control HAL
+PRODUCT_PACKAGES += \
+    android.hardware.boot@1.0-impl \
+    android.hardware.boot@1.0-service \
+    bootctrl.canoe
+    
+PRODUCT_STATIC_BOOT_CONTROL_HAL := \
+    bootctrl.canoe \
+    libgptutils \
+    libz \
+    libcutils
+
+PRODUCT_PACKAGES += \
+    otapreopt_script \
+    cppreopts.sh \
+    update_engine \
+    update_verifier \
+    update_engine_sideload
+
 # Shipping API level
 BOARD_SHIPPING_API_LEVEL    := 36
 PRODUCT_SHIPPING_API_LEVEL  := 36
@@ -35,8 +61,7 @@ PRODUCT_CHECK_PREBUILT_MAX_PAGE_SIZE := false
 
 # OTA certs
 PRODUCT_EXTRA_RECOVERY_KEYS += \
-	$(DEVICE_PATH)/security/local_OTA \
-	$(DEVICE_PATH)/security/special_OTA
+	$(DEVICE_PATH)/security/releasekey
 
 # Soong namespaces
 PRODUCT_SOONG_NAMESPACES += $(DEVICE_PATH)

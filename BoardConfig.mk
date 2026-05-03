@@ -1,5 +1,6 @@
 #
-# Copyright (C) 2025 The Android Open Source Project
+# Copyright (C) 2026 The Android Open Source Project
+# Copyright (C) 2026 SebaUbuntu's TWRP device tree generator
 #
 # SPDX-License-Identifier: Apache-2.0
 #
@@ -13,12 +14,18 @@ BUILD_BROKEN_NINJA_USES_ENV_VARS    += RTIC_MPGEN
 BUILD_BROKEN_PLUGIN_VALIDATION      := soong-libaosprecovery_defaults soong-libguitwrp_defaults soong-libminuitwrp_defaults soong-vold_defaults
 
 # Architecture
-TARGET_ARCH                 := arm64
-TARGET_ARCH_VARIANT         := armv8-a
-TARGET_CPU_ABI              := arm64-v8a
-TARGET_CPU_VARIANT          := oryon
+TARGET_ARCH := arm64
+TARGET_ARCH_VARIANT := armv8-a
+TARGET_CPU_ABI := arm64-v8a
+TARGET_CPU_ABI2 := 
+TARGET_CPU_VARIANT := generic
+TARGET_CPU_VARIANT_RUNTIME := oryon
+
+# APEX
+DEXPREOPT_GENERATE_APEX_IMAGE := true
 
 # A/B
+AB_OTA_UPDATER := true
 AB_OTA_PARTITIONS := \
     boot \
     init_boot \
@@ -49,8 +56,8 @@ AB_OTA_PARTITIONS += \
     my_stock
 
 # Bootloader
-PRODUCT_PLATFORM                := canoe
 TARGET_BOOTLOADER_BOARD_NAME    := canoe
+TARGET_NO_BOOTLOADER := true
 
 # Crypto
 BOARD_USES_METADATA_PARTITION   := true
@@ -79,31 +86,29 @@ BOARD_BOOT_HEADER_VERSION   := 4
 BOARD_KERNEL_PAGESIZE       := 4096
 BOARD_MKBOOTIMG_ARGS        += --header_version $(BOARD_BOOT_HEADER_VERSION)
 BOARD_MKBOOTIMG_ARGS        += --pagesize $(BOARD_KERNEL_PAGESIZE)
-
 BOARD_RAMDISK_USE_LZ4       := true
 
 # Partitions
 BOARD_PROPERTY_OVERRIDES_SPLIT_ENABLED  := true
 BOARD_RECOVERYIMAGE_PARTITION_SIZE      := 0x6400000
-
 BOARD_SUPER_PARTITION_SIZE                  := 19327352832
 BOARD_SUPER_PARTITION_GROUPS                := qti_dynamic_partitions
 BOARD_QTI_DYNAMIC_PARTITIONS_SIZE           := 19323158528
 BOARD_QTI_DYNAMIC_PARTITIONS_PARTITION_LIST := system system_ext product vendor vendor_dlkm odm
-BOARD_QTI_DYNAMIC_PARTITIONS_PARTITION_LIST += my_bigball my_carrier my_company my_engineering my_heytap my_manifest my_preload my_product my_region my_stock
-
 BOARD_ODMIMAGE_FILE_SYSTEM_TYPE := ext4
 TARGET_COPY_OUT_ODM             := odm
 TARGET_COPY_OUT_VENDOR          := vendor
 
 # Platform
-TARGET_BOARD_PLATFORM   := sm88xx
-QCOM_BOARD_PLATFORMS    += sm88xx
+TARGET_BOARD_PLATFORM   := NX809J
+QCOM_BOARD_PLATFORMS    += NX809J
 
 # Recovery
 BOARD_EXCLUDE_KERNEL_FROM_RECOVERY_IMAGE    := true
 TARGET_RECOVERY_PIXEL_FORMAT                := RGBX_8888
 TW_INCLUDE_FASTBOOTD                        := true
+TARGET_USERIMAGES_USE_EXT4 := true
+TARGET_USERIMAGES_USE_F2FS := true
 
 # Tool
 TW_ENABLE_ALL_PARTITION_TOOLS := true
@@ -111,6 +116,7 @@ TW_INCLUDE_7ZA                := true
 TW_INCLUDE_REPACKTOOLS        := true
 TW_INCLUDE_RESETPROP          := true
 TW_USE_TOOLBOX                := true
+TW_INCLUDE_LIBRESETPROP       := true
 
 # TWRP display
 TW_BRIGHTNESS_PATH      := /sys/class/backlight/panel0-backlight/brightness
@@ -130,7 +136,7 @@ TW_INCLUDE_NTFS_3G          := true
 TW_NO_EXFAT_FUSE            := true
 
 # Version
-PLATFORM_VERSION                := 99.87.36
+PLATFORM_VERSION                := 16.1.0
 PLATFORM_VERSION_LAST_STABLE    := $(PLATFORM_VERSION)
 PLATFORM_SECURITY_PATCH         := 2099-12-31
 VENDOR_SECURITY_PATCH           := $(PLATFORM_SECURITY_PATCH)
@@ -143,6 +149,7 @@ BOARD_AVB_ENABLE := true
 TW_SUPPORT_INPUT_AIDL_HAPTICS := true
 
 # Other TWRP Configurations
+TW_DEFAULT_LANGUAGE                     := zh_CN
 TARGET_RECOVERY_QCOM_RTC_FIX            := true
 TW_CUSTOM_CPU_TEMP_PATH                 := "/sys/class/thermal/thermal_zone45/temp" # CPU-0-0-0
 TW_EXCLUDE_APEX                         := true
@@ -152,6 +159,4 @@ TW_LOAD_VENDOR_MODULES 			:= "adsp_loader_dlkm.ko zte_tpd.ko panel_event_notifie
 TW_LOAD_VENDOR_MODULES_EXCLUDE_GKI      := true
 TW_NO_SCREEN_BLANK                      := true
 TW_USE_SERIALNO_PROPERTY_FOR_DEVICE_ID  := true
-
-
 
