@@ -29,7 +29,7 @@ struct ModelInfo {
 };
 
 const std::unordered_map<int, ModelInfo> kModelInfoMap = {
-    {0,     {"nubia",   "NX809J",   "nubia",   "NX809J",  "NX809J",  "0"}}, // Default
+    {0,     {"REDMAGIC",   "NX809J",   "nubia",   "NX809J",  "NX809J",  "0"}}, // Default
 };
 
 /*
