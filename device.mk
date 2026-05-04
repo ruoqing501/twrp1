@@ -4,6 +4,8 @@
 # SPDX-License-Identifier: Apache-2.0
 #
 
+LOCAL_PATH := device/nubia/NX809J
+
 # Configure base.mk
 $(call inherit-product, $(SRC_TARGET_DIR)/product/base.mk)
 
@@ -48,6 +50,13 @@ PRODUCT_OTA_ENFORCE_VINTF_KERNEL_REQUIREMENTS   := false
 PRODUCT_ENABLE_UFFD_GC                          := true
 
 PRODUCT_CHECK_PREBUILT_MAX_PAGE_SIZE := false
+
+# Touch and display kernel modules for recovery
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/recovery/vendor/modules/zte_tpd.ko:$(TARGET_COPY_OUT_RECOVERY)/root/vendor/lib/modules/1/zte_tpd.ko \
+    $(LOCAL_PATH)/recovery/vendor/modules/panel_event_notifier.ko:$(TARGET_COPY_OUT_RECOVERY)/root/vendor/lib/modules/1/panel_event_notifier.ko \
+    $(LOCAL_PATH)/recovery/vendor/modules/haptic_86938.ko:$(TARGET_COPY_OUT_RECOVERY)/root/vendor/lib/modules/1/haptic_86938.ko \
+    $(LOCAL_PATH)/recovery/vendor/modules/ifas.ko:$(TARGET_COPY_OUT_RECOVERY)/root/vendor/lib/modules/1/ifas.ko
 
 # OTA certs
 PRODUCT_EXTRA_RECOVERY_KEYS += \
