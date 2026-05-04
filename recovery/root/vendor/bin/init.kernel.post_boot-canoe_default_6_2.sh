@@ -166,8 +166,6 @@ if [ -d /proc/sys/walt ]; then
 		echo 1286400 > /sys/devices/system/cpu/cpufreq/policy0/walt/hispeed_freq
 		echo 2438400 > /sys/devices/system/cpu/cpufreq/policy6/walt/hispeed_freq
 	fi
-		# Disable hispeed_freq while cur_freq < 748800 (yangqixia@BSP.CPU, 2025/7/10)
-		echo 787200 > /sys/devices/system/cpu/cpufreq/policy0/walt/hispeed_cond_freq
 else
 	echo "schedutil" > /sys/devices/system/cpu/cpufreq/policy0/scaling_governor
 	echo "schedutil" > /sys/devices/system/cpu/cpufreq/policy6/scaling_governor
@@ -205,7 +203,6 @@ do
 	echo 4 > $llccbw/sample_ms
 	echo 80 > $llccbw/io_percent
 	echo 20 > $llccbw/hist_memory
-	echo 70 > $llccbw/second_ab_scale
 	echo 5 > $llccbw/hyst_length
 	echo 1 > $llccbw/idle_length
 	echo 30 > $llccbw/down_thres
@@ -276,6 +273,7 @@ done
 echo s2idle > /sys/power/mem_sleep
 echo N > /sys/devices/system/cpu/qcom_lpm/parameters/sleep_disabled
 
+echo 1 > /sys/class/powercap/qpt/enabled
 echo 4 > /proc/sys/kernel/printk
 
 # Change console log level as per console config property
@@ -289,19 +287,5 @@ case "$console_config" in
 		echo "Enable console config to $console_config"
 	;;
 esac
-
-# add for power cancel the freq limit when launcher launch
-echo 4608000 > /sys/devices/system/cpu/cpufreq/policy6/scaling_max_freq
-
-# Yangqixia.Kernel.CPU add for 6+2 and all core are perf-core
-echo 1 > /proc/oplus_scheduler/sched_assist/silver_perf_core
-
-#config fg and top cpu shares
-echo 5120 > /dev/cpuctl/top-app/cpu.shares
-echo 4096 > /dev/cpuctl/foreground/cpu.shares
-
-#config sstop and ssfg cpu shares
-echo 5120 > /dev/cpuctl/sstop/cpu.shares
-echo 4096 > /dev/cpuctl/ssfg/cpu.shares
 
 setprop vendor.post_boot.parsed 1
