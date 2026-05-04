@@ -8,15 +8,18 @@
 
 ```shell
 mkdir twrp && cd twrp
+
 repo init --depth=1 -u https://github.com/TWRP-Test/platform_manifest_twrp_aosp.git -b twrp-16.0
 repo sync
-git clone --depth=1  https://github.com/ruoqing501/twrp1 device/nubia/NX809J
-```
 
-```shell
+git clone --depth=1  https://github.com/ruoqing501/twrp1 device/nubia/NX809J
+
 source build/envsetup.sh
+
 export ALLOW_MISSING_DEPENDENCIES=true
+
 lunch twrp_NX809J
+
 make recoveryimage
 ```
 
