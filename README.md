@@ -31,11 +31,11 @@ If there is no error, recovery.img will be found in `out/target/product/NX809J/r
 Works:
 
 - [x] ADB
+- [X] OTA Flash
 - [ ] Display
 - [ ] Decryption
 - [ ] Fastbootd
 - [ ] Flashing
-- [X] OTA Flash
 - [ ] MTP
 - [ ] Sideload
 - [ ] Touch
