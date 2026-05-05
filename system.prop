@@ -1,5 +1,5 @@
-# Charger
-ro.charger.enable_suspend=true
+# Battery Property
+ro.charger.enable_suspend=1
 
 # FUSE passthrough
 persist.sys.fuse.passthrough.enable=true
@@ -10,6 +10,3 @@ ro.boot.dynamic_partitions=true
 
 # Gatekeeper
 vendor.gatekeeper.disable_spu=true
-
-# Battery Property
-ro.charger.enable_suspend=1
