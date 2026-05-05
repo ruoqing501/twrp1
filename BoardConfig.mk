@@ -79,7 +79,7 @@ BOARD_SUPER_PARTITION_SIZE                  := 19327352832
 BOARD_SUPER_PARTITION_GROUPS                := qti_dynamic_partitions
 BOARD_QTI_DYNAMIC_PARTITIONS_SIZE           := 19323158528
 BOARD_QTI_DYNAMIC_PARTITIONS_PARTITION_LIST := system system_ext product vendor vendor_dlkm odm
-BOARD_ODMIMAGE_FILE_SYSTEM_TYPE := erofs
+BOARD_ODMIMAGE_FILE_SYSTEM_TYPE := ext4
 TARGET_COPY_OUT_ODM             := odm
 TARGET_COPY_OUT_VENDOR          := vendor
 
