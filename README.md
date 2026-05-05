@@ -30,7 +30,7 @@ If there is no error, recovery.img will be found in `out/target/product/NX809J/r
 
 Works:
 
-- [ ] ADB
+- [x] ADB
 - [ ] Display
 - [ ] Decryption
 - [ ] Fastbootd
@@ -39,7 +39,7 @@ Works:
 - [ ] MTP
 - [ ] Sideload
 - [ ] Touch
-- [X] USB OTG
+- [ ] USB OTG
 - [ ] Vibrator
 
 ## To use it:
