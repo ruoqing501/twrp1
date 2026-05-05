@@ -30,17 +30,17 @@ If there is no error, recovery.img will be found in `out/target/product/infiniti
 
 Works:
 
-- [] ADB
-- [] Display
-- [] Decryption
-- [] Fastbootd
-- [] Flashing
+- [ ] ADB
+- [ ] Display
+- [ ] Decryption
+- [ ] Fastbootd
+- [ ] Flashing
 - [X] OTA Flash
-- [] MTP
-- [] Sideload
-- [] Touch
+- [ ] MTP
+- [ ] Sideload
+- [ ] Touch
 - [X] USB OTG
-- [] Vibrator
+- [ ] Vibrator
 
 ## To use it:
 
