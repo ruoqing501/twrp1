@@ -24,7 +24,7 @@ lunch twrp_NX809J
 make recoveryimage
 ```
 
-If there is no error, recovery.img will be found in `out/target/product/infiniti/recovery.img`
+If there is no error, recovery.img will be found in `out/target/product/NX809J/recovery.img`
 
 ## Features
 
