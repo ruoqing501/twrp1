@@ -53,10 +53,10 @@ PRODUCT_CHECK_PREBUILT_MAX_PAGE_SIZE := false
 
 # Touch and display kernel modules for recovery
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/recovery/root/vendor/modules/zte_tpd.ko:$(TARGET_COPY_OUT_RECOVERY)/root/vendor/lib/modules/1/zte_tpd.ko \
-    $(LOCAL_PATH)/recovery/root/vendor/modules/panel_event_notifier.ko:$(TARGET_COPY_OUT_RECOVERY)/root/vendor/lib/modules/1/panel_event_notifier.ko \
-    $(LOCAL_PATH)/recovery/root/vendor/modules/haptic_86938.ko:$(TARGET_COPY_OUT_RECOVERY)/root/vendor/lib/modules/1/haptic_86938.ko \
-    $(LOCAL_PATH)/recovery/root/vendor/modules/ifas.ko:$(TARGET_COPY_OUT_RECOVERY)/root/vendor/lib/modules/1/ifas.ko
+    $(LOCAL_PATH)/recovery/root/vendor/modules/zte_tpd.ko:$(TARGET_COPY_OUT_RECOVERY)/root/vendor/lib/modules/zte_tpd.ko \
+    $(LOCAL_PATH)/recovery/root/vendor/modules/panel_event_notifier.ko:$(TARGET_COPY_OUT_RECOVERY)/root/vendor/lib/modules/panel_event_notifier.ko \
+    $(LOCAL_PATH)/recovery/root/vendor/modules/haptic_86938.ko:$(TARGET_COPY_OUT_RECOVERY)/root/vendor/lib/modules/haptic_86938.ko \
+    $(LOCAL_PATH)/recovery/root/vendor/modules/ifas.ko:$(TARGET_COPY_OUT_RECOVERY)/root/vendor/lib/modules/ifas.ko
 
 # OTA certs
 PRODUCT_EXTRA_RECOVERY_KEYS += \
