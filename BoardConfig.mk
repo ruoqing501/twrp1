@@ -21,10 +21,6 @@ TARGET_CPU_ABI2 :=
 TARGET_CPU_VARIANT := generic
 TARGET_CPU_VARIANT_RUNTIME := oryon
 
-# APEX
-DEXPREOPT_GENERATE_APEX_IMAGE := true
-BOARD_USES_QCOM_FBE_DECRYPTION := true
-
 # A/B
 AB_OTA_UPDATER := true
 AB_OTA_PARTITIONS := \
@@ -83,7 +79,7 @@ BOARD_SUPER_PARTITION_SIZE                  := 19327352832
 BOARD_SUPER_PARTITION_GROUPS                := qti_dynamic_partitions
 BOARD_QTI_DYNAMIC_PARTITIONS_SIZE           := 19323158528
 BOARD_QTI_DYNAMIC_PARTITIONS_PARTITION_LIST := system system_ext product vendor vendor_dlkm odm
-BOARD_ODMIMAGE_FILE_SYSTEM_TYPE := ext4
+BOARD_ODMIMAGE_FILE_SYSTEM_TYPE := erofs
 TARGET_COPY_OUT_ODM             := odm
 TARGET_COPY_OUT_VENDOR          := vendor
 
@@ -107,7 +103,7 @@ TW_INCLUDE_LIBRESETPROP       := true
 # TWRP display
 TW_BRIGHTNESS_PATH      := /sys/class/backlight/panel0-backlight/brightness
 TW_DEFAULT_BRIGHTNESS   := 1000
-TW_FRAMERATE            := 120
+TW_FRAMERATE            := 144
 TW_MAX_BRIGHTNESS       := 2047
 TW_SCREEN_BLANK_ON_BOOT := true
 TW_THEME                := portrait_hdpi
@@ -126,7 +122,7 @@ PLATFORM_VERSION                := 99.87.36
 PLATFORM_VERSION_LAST_STABLE    := $(PLATFORM_VERSION)
 PLATFORM_SECURITY_PATCH         := 2099-12-31
 VENDOR_SECURITY_PATCH           := $(PLATFORM_SECURITY_PATCH)
-TW_DEVICE_VERSION               := NUBIA-NX809J
+TW_DEVICE_VERSION               := Nubia-NX809J
 
 # Verified Boot
 BOARD_AVB_ENABLE := true
