@@ -4,7 +4,7 @@
 
 - REDMAGIC 11 pro +
 
-## Build it yourself?
+## Build
 
 ```shell
 mkdir twrp && cd twrp
@@ -30,21 +30,20 @@ If there is no error, recovery.img will be found in `out/target/product/infiniti
 
 Works:
 
-- [X] ADB
-- [X] Display
-- [X] Decryption
-- [X] Fastbootd
-- [X] Flashing
+- [] ADB
+- [] Display
+- [] Decryption
+- [] Fastbootd
+- [] Flashing
 - [X] OTA Flash
-- [X] MTP
-- [ ] Sideload
-- [X] Touch
+- [] MTP
+- [] Sideload
+- [] Touch
 - [X] USB OTG
-- [X] Vibrator
+- [] Vibrator
 
 ## To use it:
 
 ```shell
 fastboot flash recovery_a recovery.img
-fastboot flash recovery_b recovery.img
 ```
