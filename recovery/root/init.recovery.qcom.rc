@@ -43,6 +43,19 @@ on init
     setprop sys.usb.configfs 1
     start vendor.boot-qti
     setprop prepdecrypt.setpatch true
+    start boot-hal-1-2
+    setprop sys.usb.config mtp,adb
+    insmod /vendor/lib/modules/q6_pdr_dlkm.ko
+    insmod /vendor/lib/modules/q6_notifier_dlkm.ko
+    insmod /vendor/lib/modules/snd_event_dlkm.ko
+    insmod /vendor/lib/modules/apr_dlkm.ko
+    insmod /vendor/lib/modules/gpr_dlkm.ko
+    insmod /vendor/lib/modules/spf_core_dlkm.ko
+    insmod /vendor/lib/modules/adsp_loader_dlkm.ko
+    insmod /vendor/lib/modules/haptic_86938.ko
+    insmod /vendor/lib/modules/ifas.ko
+    insmod /vendor/lib/modules/panel_event_notifier.ko
+    insmod /vendor/lib/modules/zte_tpd.ko
 
 on property:ro.boot.usbcontroller=*
     setprop sys.usb.controller ${ro.boot.usbcontroller}
