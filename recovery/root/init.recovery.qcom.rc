@@ -44,7 +44,6 @@ on init
     start vendor.boot-qti
     setprop prepdecrypt.setpatch true
     start boot-hal-1-2
-    setprop sys.usb.config mtp,adb
     insmod /vendor/lib/modules/q6_pdr_dlkm.ko
     insmod /vendor/lib/modules/q6_notifier_dlkm.ko
     insmod /vendor/lib/modules/snd_event_dlkm.ko
