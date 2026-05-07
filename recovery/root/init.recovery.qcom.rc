@@ -1,4 +1,4 @@
-# Copyright (c) 2017-2018,2020-2021 The Linux Foundation. All rights reserved.
+# Copyright (c) 2017-2021 The Linux Foundation. All rights reserved.
 #
 # Redistribution and use in source and binary forms, with or without
 # modification, are permitted provided that the following conditions are met:
@@ -43,14 +43,6 @@ on init
     setprop sys.usb.configfs 1
     start vendor.boot-qti
     setprop prepdecrypt.setpatch true
-    start boot-hal-1-2
-    insmod /vendor/lib/modules/q6_pdr_dlkm.ko
-    insmod /vendor/lib/modules/q6_notifier_dlkm.ko
-    insmod /vendor/lib/modules/snd_event_dlkm.ko
-    insmod /vendor/lib/modules/apr_dlkm.ko
-    insmod /vendor/lib/modules/gpr_dlkm.ko
-    insmod /vendor/lib/modules/spf_core_dlkm.ko
-    insmod /vendor/lib/modules/adsp_loader_dlkm.ko
 
 on property:ro.boot.usbcontroller=*
     setprop sys.usb.controller ${ro.boot.usbcontroller}
