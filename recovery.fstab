@@ -3,7 +3,7 @@
 # specify MF_CHECK, and must come before any filesystems that do specify MF_CHECK
 
 # Android fstab file.
-# Device: Nubia RedMagic 10 Pro (NX809J)
+# Device: Nubia RedMagic 11 Pro (NX809J)
 # Platform: Snapdragon 8 Elite (canoe) / Android 16
 # Encryption: ICE wrappedkey / FBE policy 2
 
