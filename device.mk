@@ -27,6 +27,7 @@ PRODUCT_SHIPPING_API_LEVEL := 36
 
 # Dynamic partitions
 PRODUCT_USE_DYNAMIC_PARTITIONS := true
+PRODUCT_CHECK_PREBUILT_MAX_PAGE_SIZE := false
 
 # Required for Android 16 CrashRecovery APEX
 PRODUCT_APEX_SYSTEM_SERVER_JARS += com.android.crashrecovery:service-crashrecovery
