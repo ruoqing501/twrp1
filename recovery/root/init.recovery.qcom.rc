@@ -76,6 +76,7 @@ on property:twrp.modules.loaded=true
 
 on property:ro.crypto.state=encrypted && property:ro.boot.dynamic_partitions=true
     start odm.prepdecrypt
+    start prepdecrypt.vendor
 
 on property:twrp.variant.files_copied=1
     start odm.vibratorfeature-service
@@ -99,9 +100,6 @@ on post-fs
     write /sys/kernel/fan/fan_enable 1
     write /sys/kernel/fan/fan_speed_level 1
     write /sys/class/leds/aw22xxx_led/trigger battery-charging-or-full
-
-on property:ro.crypto.state=encrypted && property:ro.boot.dynamic_partitions=true
-    start prepdecrypt.vendor
 
 on property:hwservicemanager.ready=true
     setprop sys.boot_completed 1
