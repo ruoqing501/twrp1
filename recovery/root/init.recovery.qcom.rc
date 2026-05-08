@@ -25,13 +25,30 @@
 # ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #
 
+on early-init
+    start vendor.gatekeeper_default
+
+service post-boot-script /system/bin/sh -c /vendor/bin/init.kernel.post_boot-canoe_default_6_2.sh
+    user root
+    group root
+    oneshot
+    seclabel u:r:recovery:s0
+
+on early-fs
+    write /proc/sys/walt/sched_lib_name "recovery,Updater,updater,update_engine_sideload"
+    write /proc/sys/walt/sched_lib_mask_force 255
+
 on init
+    write /sys/class/backlight/panel0-backlight/brightness 200
+    setprop sys.usb.configfs 1
     start vendor.boot-qti
     setprop prepdecrypt.setpatch true
 
-on early-fs
-    write /proc/sys/walt/sched_lib_name "recovery,magiskboot,Updater,updater,update_engine_sideload"
-    write /proc/sys/walt/sched_lib_mask_force 255
+on property:ro.boot.usbcontroller=*
+    setprop sys.usb.controller ${ro.boot.usbcontroller}
+    wait /sys/bus/platform/devices/${ro.boot.usb.dwc3_msm:-a600000.ssusb}/mode
+    write /sys/bus/platform/devices/${ro.boot.usb.dwc3_msm:-a600000.ssusb}/mode peripheral
+    wait /sys/class/udc/${ro.boot.usbcontroller} 1
 
 on fs
     wait /dev/block/platform/soc/${ro.boot.bootdevice}
@@ -46,9 +63,6 @@ on fs
     mkdir /tmp/persist 0775 shell system
     mount none /tmp/persist /mnt/vendor/persist bind rec
 
-on boot
-    setprop sys.usb.config adb
-
 on property:twrp.modules.loaded=true
     # Mount firmware
     mkdir /firmware
@@ -58,8 +72,7 @@ on property:twrp.modules.loaded=true
     write /sys/kernel/boot_adsp/ssr 1
     wait /sys/class/power_supply/battery
     start vendor.health-default
-    umount /vendor
-    symlink /firmware /vendor/firmware_mnt
+    umount /firmware
 
 on property:ro.crypto.state=encrypted && property:ro.boot.dynamic_partitions=true
     start odm.prepdecrypt
@@ -71,8 +84,6 @@ on property:twrp.variant.files_copied=1
     start odm.keymint-strongbox
     start odm.se_omapi
 
-on property:servicemanager.ready=true
-    setprop sys.boot_completed 1
 on post-fs-data
     start vendor.qti.vibrator
 
@@ -88,3 +99,13 @@ on post-fs
     write /sys/kernel/fan/fan_enable 1
     write /sys/kernel/fan/fan_speed_level 1
     write /sys/class/leds/aw22xxx_led/trigger battery-charging-or-full
+
+on property:ro.crypto.state=encrypted && property:ro.boot.dynamic_partitions=true
+    start prepdecrypt.vendor
+
+on property:hwservicemanager.ready=true
+    setprop sys.boot_completed 1
+
+on property:vendor.sys.listeners.registered=true
+    start vendor.ssgtzd
+    start vendor.keymint-strongbox
