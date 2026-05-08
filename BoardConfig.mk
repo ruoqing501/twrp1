@@ -94,17 +94,10 @@ BOARD_DTBOIMG_PARTITION_SIZE := 75497472
 BOARD_INIT_BOOT_IMAGE_PARTITION_SIZE := 8388608
 
 # Dynamic Partitions
-BOARD_SUPER_PARTITION_SIZE := 19327352832
-BOARD_SUPER_PARTITION_GROUPS := qti_dynamic_partitions
-BOARD_NUBIA_DYNAMIC_PARTITIONS_SIZE := 19323158528
-BOARD_NUBIA_DYNAMIC_PARTITIONS_PARTITION_LIST := \
-    system \
-    system_ext \
-    product \
-    vendor \
-    vendor_dlkm \
-    odm \
-    odm_dlkm
+BOARD_SUPER_PARTITION_SIZE                  := 19327352832
+BOARD_SUPER_PARTITION_GROUPS                := qti_dynamic_partitions
+BOARD_QTI_DYNAMIC_PARTITIONS_SIZE           := 19323158528
+BOARD_QTI_DYNAMIC_PARTITIONS_PARTITION_LIST := system system_ext product vendor vendor_dlkm odm
 
 # File systems
 TARGET_USERIMAGES_USE_EXT4 := true
