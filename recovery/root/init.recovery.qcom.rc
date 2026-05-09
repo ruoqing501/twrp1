@@ -25,6 +25,8 @@
 # ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #
 
+import /init.recovery.wifi.rc
+
 on early-init
     start vendor.gatekeeper_default
 
@@ -80,7 +82,6 @@ on property:ro.crypto.state=encrypted && property:ro.boot.dynamic_partitions=tru
 
 on property:twrp.variant.files_copied=1
     start odm.vibratorfeature-service
-    start odm.touch_report
     start odm.weaver-service
     start odm.keymint-strongbox
     start odm.se_omapi
