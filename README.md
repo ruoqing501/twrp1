@@ -2,7 +2,7 @@
 
 ## Supported devices
 
-- REDMAGIC 11 pro +
+- REDMAGIC 11 pro
 
 ## Build
 
@@ -19,9 +19,9 @@ source build/envsetup.sh
 
 export ALLOW_MISSING_DEPENDENCIES=true
 
-lunch twrp_NX809J
+lunch twrp_NX809J-bp2a-eng
 
-make recoveryimage
+mka recoveryimage
 ```
 
 If there is no error, recovery.img will be found in `out/target/product/NX809J/recovery.img`
@@ -32,6 +32,7 @@ Works:
 
 - [x] ADB
 - [X] OTA Flash
+- [X] USB OTG
 - [ ] Display
 - [ ] Decryption
 - [ ] Fastbootd
@@ -39,7 +40,6 @@ Works:
 - [ ] MTP
 - [ ] Sideload
 - [ ] Touch
-- [ ] USB OTG
 - [ ] Vibrator
 
 ## To use it:
