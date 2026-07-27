@@ -1,0 +1,4 @@
+# 允许 recovery 域读取已解密的应用私有数据目录
+# 消除备份/扫描 /data 时 1372 条 avc denied (app_data_file) 刷屏
+r_dir_file(recovery, app_data_file)
+allow recovery app_data_file:lnk_file getattr;

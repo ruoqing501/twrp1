@@ -111,6 +111,9 @@ BOARD_HAS_LARGE_FILESYSTEM := true
 TARGET_RECOVERY_PIXEL_FORMAT := RGBX_8888
 TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/recovery.fstab
 
+# Sepolicy - 消除 recovery 域读 app_data_file 的 avc denied 刷屏
+BOARD_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy
+
 # Crypto
 TW_INCLUDE_CRYPTO := true
 TW_INCLUDE_CRYPTO_FBE := true
@@ -173,7 +176,8 @@ TW_SUPPORT_INPUT_AIDL_HAPTICS_FQNAME := "android.hardware.vibrator.IVibrator/vib
 TW_SUPPORT_INPUT_AIDL_HAPTICS_FIX_OFF := true
 TW_USE_SERIALNO_PROPERTY_FOR_DEVICE_ID := true
 TW_SCREEN_BLANK_ON_BOOT := true
-TW_LOAD_VENDOR_MODULES := "drm_display_helper.ko msm_drm.ko panel_event_notifier.ko zte_tpd.ko smartpa_stat_dlkm.ko aw882xx_dlkm.ko aw9620x.ko"
+# 显示/触摸/音频原有模块 + WiFi 完整加载链（FastConnect 7900 / cnss-peach / qca_cld3_peach_v2）
+TW_LOAD_VENDOR_MODULES := "drm_display_helper.ko msm_drm.ko panel_event_notifier.ko zte_tpd.ko smartpa_stat_dlkm.ko aw882xx_dlkm.ko aw9620x.ko libarc4.ko rfkill.ko cfg80211.ko mac80211.ko wlan_firmware_service.ko cnss_prealloc.ko cnss_utils.ko cnss_nl.ko cnss_plat_ipc_qmi_svc.ko cnss2.ko qca_cld3_peach_v2.ko"
 TW_LOAD_VENDOR_MODULES_EXCLUDE_GKI := true
 TW_LOAD_PREBUILT_MODULES_AT_FIRST := true
 TW_CUSTOM_CPU_TEMP_PATH := "/sys/class/thermal/thermal_zone1/temp"

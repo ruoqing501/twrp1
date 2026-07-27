@@ -1,8 +1,23 @@
-on property:post.decrypt.modules=true
+# WiFi 驱动加载：vendor 模块加载完成后触发
+# cnss2.ko + qca_cld3_peach_v2.ko 由 TW_LOAD_VENDOR_MODULES 加载
+on property:twrp.modules.loaded=true
+    # 等待 cnss2 probe 出 fs_ready 节点（两种路径兼容，写一个存在的即可）
+    wait /sys/bus/platform/drivers/cnss2/b0000000.qcom,cnss-peach/fs_ready 10
     chmod 222 /sys/bus/platform/drivers/cnss2/b0000000.qcom,cnss-peach/fs_ready
     write /sys/bus/platform/drivers/cnss2/b0000000.qcom,cnss-peach/fs_ready 1
-    wait /sys/class/net/wlan0 10
+    chmod 222 /sys/devices/platform/soc/b0000000.qcom,cnss-peach/fs_ready
+    write /sys/devices/platform/soc/b0000000.qcom,cnss-peach/fs_ready 1
+    write /dev/kmsg "wifi: fs_ready set, waiting for wlan0"
+    wait /sys/class/net/wlan0 15
     write /dev/kmsg "Interface wlan0 found"
+    setprop wifi.driver.ready true
+
+# 解密后再触发一次（模块在 post-decrypt 阶段重新加载的场景）
+on property:post.decrypt.modules=true
+    wait /sys/bus/platform/drivers/cnss2/b0000000.qcom,cnss-peach/fs_ready 10
+    chmod 222 /sys/bus/platform/drivers/cnss2/b0000000.qcom,cnss-peach/fs_ready
+    write /sys/bus/platform/drivers/cnss2/b0000000.qcom,cnss-peach/fs_ready 1
+    wait /sys/class/net/wlan0 15
     setprop wifi.driver.ready true
 
 on property:wifi.driver.ready=true
